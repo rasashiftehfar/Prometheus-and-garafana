@@ -1,0 +1,13 @@
+[Unit]
+Description=Alertmanager for prometheus
+
+[Service]
+Restart=always
+User=rooot
+ExecStart=/data/alertmanager/alertmanager --config.file=/data/alertmanager/alertmanager.yml --storage.path=/data/alertmanager/data            
+ExecReload=/bin/kill -HUP $MAINPID
+TimeoutStopSec=20s
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target
