@@ -1,0 +1,9 @@
+# this file must be creat in prometheus folder
+# this config shows alert InstanceDOwn  when targets are not running or inaccessible to prometheus (up==0) for time (1m)
+
+groups:
+ - name: test
+   rules:
+   - alert: InstanceDown
+     expr: up == 0
+     for: 1m
